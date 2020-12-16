@@ -3,11 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
-#task_app {
+.center {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+#main_wrap {
+  width: 100vw;
+  height: 100vh;
+}
+#task_app {
+  flex-direction: column;
 }
 #header_logo {
   width: 400px;
@@ -17,9 +23,6 @@
   margin: 20px;
 }
 .delete_button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 30px;
   height: 30px;
   border-radius: 50%;

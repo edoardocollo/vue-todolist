@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +9,25 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+  <div id="main_wrap" class="center">
 
-  <div id="task_app">
-  <img id="header_logo" src="img/logo.png" alt="">
-  <input type="text" v-model="task" v-on:keyup.enter="addTask">
-  <button id="add_button" v-on:click="addTask()"type="button" name="button">Add</button>
+    <div id="task_app" class="center">
+      
+      <img id="header_logo" src="img/logo.png" alt="">
+      <input type="text" v-model="task" v-on:keyup.enter="addTask">
+      <button id="add_button" v-on:click="addTask()" type="button" name="button">Add</button>
 
 
 
 
       <ul id="task_list">
         <!-- <transition-group name="fade" tag="li"> -->
-        <li v-for="(printedTask,i) in tasks" v-bind:key="printedTask" >{{tasks[i]}}
-          <div class="delete_button" v-on:click="removeTask(i)">
-            <i class="fas fa-trash-alt" ></i>
+        <li v-for="(printedTask,i) in tasks" v-bind:key="printedTask">{{tasks[i]}}
+          <div class="delete_button center" v-on:click="removeTask(i)">
+            <i class="fas fa-trash-alt"></i>
           </div>
         </li>
         <!-- </transition> -->
@@ -34,7 +38,9 @@
 
 
 
-  <p v-show="tasks.length < 1">Nessuna task presente</p>
+      <p v-show="tasks.length < 1">Nessuna task presente</p>
+
+    </div>
 
   </div>
 
@@ -50,4 +56,5 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script src="main.js" charset="utf-8"></script>
 </body>
+
 </html>
