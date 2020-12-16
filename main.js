@@ -6,7 +6,11 @@ let taskApp = new Vue({
   },
   methods: {
     addTask: function(){
-      this.tasks.push(this.task);
+      this.tasks.unshift(this.task);
+      console.log(this.tasks);
+    },
+    removeTask: function(index){
+      this.tasks.splice(index,1);
       console.log(this.tasks);
     },
   }

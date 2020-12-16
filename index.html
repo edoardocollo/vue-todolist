@@ -16,7 +16,7 @@
   <input type="text" v-model="task">
   <button v-on:click="addTask()"type="button" name="button">Add</button>
   <ul id="task_list">
-    <li v-for="(printedTask,i) in tasks">{{tasks[i]}}<i class="fas fa-trash-alt"></i></li>
+    <li v-for="(printedTask,i) in tasks" v-on:click="removeTask(i)">{{tasks[i]}}<i class="fas fa-trash-alt"></i></li>
   </ul>
 
 
