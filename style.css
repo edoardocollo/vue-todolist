@@ -3,26 +3,20 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 #task_app {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#logo{
+#task_list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 400px;
-  padding: 20px;
-}
-#task_box {
-  height: 100px;
-  width: 400px;
+  padding: 0 20px;
+  list-style: none;
+  line-height: 40px;
   background-color: lightgray;
-  margin: 20px;
+  border: 1px solid black;
 }

@@ -2,13 +2,12 @@ let taskApp = new Vue({
   el: '#task_app',
   data: {
     tasks: [],
+    task: '',
   },
   methods: {
     addTask: function(){
-      const target = document.querySelector('#task_input');
-      const taskToAdd = target.value;
-      this.tasks.push(taskToAdd)
+      this.tasks.push(this.task);
       console.log(this.tasks);
     },
-  },
+  }
 })

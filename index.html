@@ -12,19 +12,15 @@
 
 
   <div id="task_app">
-    <img id="logo" src="img/logo.png" alt="">
-    <div id="input_box">
-      <input id="task_input" type="text" name="" value="">
-      <button v-on:click="addTask">Add</button>
-    </div>
-    <div id="task_box">
-      <ul id="tasklist">
-        <li v-for="(task,i) in tasks">{{tasks[i]}}<i class="fas fa-trash-alt"></i></li>
-      </ul>
-    </div>
+  <img src="img/logo.png" alt="">
+  <input type="text" v-model="task">
+  <button v-on:click="addTask()"type="button" name="button">Add</button>
+  <ul id="task_list">
+    <li v-for="(printedTask,i) in tasks">{{tasks[i]}}<i class="fas fa-trash-alt"></i></li>
+  </ul>
+
+
   </div>
-
-
 
 
 
