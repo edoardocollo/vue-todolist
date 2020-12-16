@@ -18,7 +18,7 @@
   <ul id="task_list">
     <li v-for="(printedTask,i) in tasks" v-on:click="removeTask(i)">{{tasks[i]}}<i class="fas fa-trash-alt"></i></li>
   </ul>
-
+  <p v-show="tasks.length < 1">Nessuna task presente</p>
 
   </div>
 
