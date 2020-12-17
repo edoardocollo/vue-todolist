@@ -12,6 +12,7 @@ let taskApp = new Vue({
     toDoShow: false,
     completedShow: false,
     trashShow: false,
+    img: 'img/japan.png'
   },
   methods: {
     addTask: function(){

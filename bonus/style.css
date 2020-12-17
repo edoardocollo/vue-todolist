@@ -42,11 +42,18 @@ i {
   margin-left: 100px;
   z-index: -10;
 }
-#ciliegio {
-  width: 80vw;
+#sun {
+  width: 1000px;
   position: absolute;
-  top: -20%;
-  right: 0;
+  top: 20%;
+  right: -10%;
+  z-index: -20;
+}
+#japan {
+  width: 500px;
+  position: absolute;
+  top: 20%;
+  right: 20%;
   z-index: -20;
 }
 #nav_wrap {
