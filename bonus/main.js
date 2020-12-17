@@ -9,10 +9,13 @@ let taskApp = new Vue({
     idCounterTrash: 0,
     idCounterCompleted: 0,
     ora: '',
-    toDoShow: false,
-    completedShow: false,
-    trashShow: false,
-    img: 'img/japan.png'
+    toDoShow: true,
+    completedShow: true,
+    trashShow: true,
+    img: 'img/japan.png',
+    japanShow: false,
+    sunShow: false,
+    backgroundShow: false,
   },
   methods: {
     addTask: function(){
@@ -87,7 +90,38 @@ let taskApp = new Vue({
   },
   created(){
     const displayOra = document.querySelector('#display_ora');
+    setTimeout(function () {
+      taskApp.japanShow = true;
+      taskApp.sunShow = true;
+      taskApp.backgroundShow = true;
+      const testArray =[
+        {
+          id:"task0",
+          showModifier:false,
+          taskModifier:"",
+          time:"22:9:29",
+          value:"fdgdfgdfgdfgdfg",
+        },
+        {
+          id:"task0",
+          showModifier:false,
+          taskModifier:"",
+          time:"22:9:29",
+          value:"fdgdfgdfgdfgdfg",
+        },
+        {
+          id:"task0",
+          showModifier:false,
+          taskModifier:"",
+          time:"22:9:29",
+          value:"fdgdfgdfgdfgdfg",
+        },
 
+      ];
+      taskApp.tasks = testArray;
+      taskApp.trash = testArray;
+      taskApp.completedTasks = testArray;
+    }, 10);
     setInterval(function () {
       const oraAttuale = new Date();
       const secondi = oraAttuale.getSeconds();
@@ -96,6 +130,12 @@ let taskApp = new Vue({
       taskApp.ora = `${ore}:${minuti}:${secondi}`;
 
     }, 1000);
+    setTimeout(function () {
+      taskApp.tasks = [];
+      taskApp.trash = [];
+      taskApp.completedTasks = [];
+
+    }, 5000);
   },
 
 })

@@ -38,13 +38,13 @@ i {
 }
 #background {
   width: 700px;
-  position: absolute;
+  position: fixed;
   margin-left: 100px;
   z-index: -10;
 }
 #sun {
   width: 1000px;
-  position: absolute;
+  position: fixed;
   top: 20%;
   right: -10%;
   z-index: -20;
@@ -62,7 +62,7 @@ i {
   align-items: center;
 }
 #main_nav {
-  position: relative;
+  position: fixed;
   left: 10px;
   background-color: rgba(219, 213, 213, 0.8);
   border-radius: 10px;
@@ -71,6 +71,8 @@ i {
   box-shadow: 0px 0px 2px 2px #CA0B2B;
 }
 #main_nav .fas {
+  display: flex;
+  flex-direction: column;
   position: relative;
   font-size: 40px;
   margin: 50px 15px;
@@ -92,7 +94,7 @@ i {
 }
 #main_wrap {
   width: 100vw;
-  height: 100vh;
+  min-height: 120vh;
   display: flex;
 
 }
@@ -105,10 +107,10 @@ i {
 
 }
 #task_app {
+  width: 85%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
-  margin-left: 30px;
 }
 #header_logo {
   width: 600px;
@@ -137,9 +139,9 @@ i {
   box-shadow: 0px 0px 2px 2px #CA0B2B;
 }
 #list_wrap {
-  width: 100vw;
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .creation_time {
   font-size: 10px;
@@ -189,4 +191,40 @@ i {
 /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translateX(10px);
   opacity: 0;
+}
+.japan-enter-active {
+  transition: all 2s ease;
+}
+.japan-enter, .fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateY(-600px);
+  opacity: 0;
+}
+.sun-enter-active {
+  transition: all 2s linear;
+}
+.sun-enter, .fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(600px);
+  transform: scale(70%);
+  opacity: 0.5;
+}
+.background-enter-active {
+  transition: all 2s linear;
+}
+.background-enter, .fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateY(600px);
+  /* transform: scale(50%); */
+  opacity: 0.5;
+}
+@media all and (max-width: 1700px) {
+  .list_box {
+    flex-basis: 40%;
+  }
+}
+@media all and (max-width: 1200px) {
+  .list_box {
+    flex-basis: 100%;
+  }
 }

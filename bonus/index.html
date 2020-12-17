@@ -13,12 +13,16 @@
 </head>
 
 <body>
-  <img id="background" src="img/shodo2.png" alt="">
-  <img id="sun" src="img/sun.png" alt="">
-  <!-- <transition name="fade">
-  <img id="japan" v-bind:src="img" alt="">
-  </transition> -->
   <div id="main_wrap" >
+    <transition name="background">
+      <img v-if="backgroundShow" id="background" src="img/shodo2.png" alt="">
+    </transition>
+    <transition name="sun">
+      <img v-if="sunShow" id="sun" src="img/sun.png" alt="">
+    </transition>
+    <transition name="japan">
+      <img v-if="japanShow"id="japan" src="img/japan.png" alt="">
+    </transition>
     <div id="nav_wrap">
 
       <nav id="main_nav">
