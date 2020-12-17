@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <img id="background" src="img/shodo2.png" alt="">
+  <div id="main_wrap" >
+    <div id="nav_wrap">
+
+      <nav id="main_nav">
+
+
+        <i class="fas fa-list-ul" v-on:click="toDoShow = !toDoShow">
+          <div class="badge" v-if="tasks.length > 0">{{tasks.length}}</div>
+        </i>
+        <i class="fas fa-check-circle" v-on:click="completedShow = !completedShow">
+          <div class="badge" v-if="completedTasks.length > 0">{{completedTasks.length}}</div>
+        </i>
+        <i class="fas fa-trash-alt" v-on:click="trashShow = !trashShow">
+          <div class="badge" v-if="trash.length > 0">{{trash.length}}</div>
+
+        </i>
+
+
+      </nav>
+    </div>
+
+    <div id="task_app">
+      <img id="header_logo" src="img/logo.png" alt="">
+      <div id="ora_wrap">
+        <h2 id="ora_title">今</h2>
+        <p id="display_ora">{{ora}}</p>
+      </div>
+      <input id="input_add" type="text" v-model="task" v-on:keyup.enter="addTask">
+      <button id="add_button" v-on:click="addTask()" type="button" name="button">追加</button>
+
+
+      <div id="list_wrap">
+        <div class="list_box" v-if="toDoShow">
+          <h3>やることリスト</h3>
+          <transition-group class="task_list list_style" name="fade" tag="ul">
+            <li v-for="(task_input,i) in tasks" v-bind:key='task_input.id'>
+              {{tasks[i].value}}
+              <span class="creation_time">Aggiunto alle:{{tasks[i].time}}</span>
+
+
+
+
+              <div class="button_wrap">
+
+
+
+
+                <div class="delete_button center">
+                  <i v-on:click="modifyShow(i)" class="fas fa-file-alt"></i>
+                </div>
+
+
+
+
+                <div class="delete_button center">
+                  <i v-on:click="moveToCompleted(i)" class="fas fa-check-circle"></i>
+                </div>
+                <div class="delete_button center">
+                  <i v-on:click="removeTask(i)" class="fas fa-trash-alt"></i>
+                </div>
+              </div>
+
+
+
+
+              <div v-if="tasks[i].showModifier" class="mod_input">
+                <input v-model="tasks[i].taskModifier" v-on:keyup.enter="modifyTask(i)" type="text" name="" value="">
+                <button v-on:click="modifyTask(i)" type="button" name="button">適用する</button>
+              </div>
+
+
+
+            </li>
+          </transition-group>
+          <p v-show="tasks.length < 1">タスクが存在しません</p>
+
+        </div>
+
+        <div class="list_box" v-if="completedShow">
+          <h3>完了したタスク</h3>
+
+
+
+
+
+          <transition-group class="completed_list list_style" name="fade" tag="ul">
+            <li v-for="(completed_input,i) in completedTasks" v-bind:key='completed_input.id'>
+              {{completedTasks[i].value}}
+              <span class="creation_time">Completato alle:{{completedTasks[i].time}}</span>
+              <div class="delete_button center">
+                <i v-on:click="moveFromTrashToCompleted(i)" class="fas fa-trash-alt"></i>
+              </div>
+            </li>
+          </transition-group>
+
+
+
+
+
+
+
+        </div>
+
+        <div class="list_box" v-if="trashShow">
+          <h3>ゴミ箱</h3>
+          <transition-group class="trash_list list_style" name="fade" tag="ul">
+            <li v-for="(trash_input,i) in trash" v-bind:key='trash_input.id'>
+              {{trash[i].value}}
+              <span class="creation_time">Rimosso alle:{{trash[i].time}}</span>
+              <div class="delete_button center">
+                <i v-on:click="deleteTask(i)" class="fas fa-minus-circle"></i>
+              </div>
+            </li>
+          </transition-group>
+        </div>
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
